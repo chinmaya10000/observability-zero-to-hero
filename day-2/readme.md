@@ -67,21 +67,21 @@ Monitoring is the process of keeping an eye on these metrics over time to unders
 
 
 ```bash
-eksctl create cluster --name=observability \
-                      --region=us-east-1 \
-                      --zones=us-east-1a,us-east-1b \
+eksctl create cluster --name=myapp-eks \
+                      --region=us-east-2 \
+                      --zones=us-east-2a,us-east-2b \
                       --without-nodegroup
 ```
 ```bash
 eksctl utils associate-iam-oidc-provider \
-    --region us-east-1 \
-    --cluster observability \
+    --region us-east-2 \
+    --cluster myapp-eks \
     --approve
 ```
 ```bash
-eksctl create nodegroup --cluster=observability \
-                        --region=us-east-1 \
-                        --name=observability-ng-private \
+eksctl create nodegroup --cluster=myapp-eks \
+                        --region=us-east-2 \
+                        --name=demo-ng-private \
                         --node-type=t3.medium \
                         --nodes-min=2 \
                         --nodes-max=3 \
