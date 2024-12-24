@@ -82,7 +82,7 @@ eksctl utils associate-iam-oidc-provider \
 eksctl create nodegroup --cluster=myapp-eks \
                         --region=us-east-2 \
                         --name=demo-ng-private \
-                        --node-type=t3.medium \
+                        --node-type=t2.medium \
                         --nodes-min=2 \
                         --nodes-max=3 \
                         --node-volume-size=20 \
@@ -95,7 +95,7 @@ eksctl create nodegroup --cluster=myapp-eks \
                         --node-private-networking
 
 # Update ./kube/config file
-aws eks update-kubeconfig --name observability
+aws eks update-kubeconfig --name myapp-eks
 ```
 
 ### 🧰 Step 2: Install kube-prometheus-stack
